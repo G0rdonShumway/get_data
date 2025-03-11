@@ -38,16 +38,16 @@ const fetchData = async (project, fromDate, toDate) => {
     const workbook = new ExcelJS.Workbook();
     let worksheet = workbook.addWorksheet('Deposits');
     worksheet.columns = [
-        { header: 'Id', key: 'Id', width: 15 },
-        { header: 'PartnerId', key: 'PartnerId', width: 15 },
+        { header: 'ClientId', key: 'ClientId', width: 15 },
+        { header: 'ClientLogin', key: 'ClientLogin', width: 15 },
+        { header: 'UserName', key: 'UserName', width: 15 },
         { header: 'TypeId', key: 'TypeId', width: 10 },
         { header: 'CurrencyId', key: 'CurrencyId', width: 10 },
         { header: 'Amount', key: 'Amount', width: 10 },
-        { header: 'CreatedDate', key: 'CreatedDate', width: 20 },
-        { header: 'ClientId', key: 'ClientId', width: 15 },
         { header: 'PaymentSystemName', key: 'PaymentSystemName', width: 20 },
-        { header: 'ClientLogin', key: 'ClientLogin', width: 15 },
-        { header: 'UserName', key: 'UserName', width: 15 }
+        { header: 'CreatedDate', key: 'CreatedDate', width: 20 },
+        { header: 'PartnerId', key: 'PartnerId', width: 15 },
+        { header: 'Id', key: 'Id', width: 15 }
     ];
 
     let totalCount = 0;
@@ -93,16 +93,16 @@ const fetchData = async (project, fromDate, toDate) => {
 
                 Documents.Objects.forEach(doc => {
                     worksheet.addRow({
-                        Id: doc.Id,
-                        PartnerId: doc.PartnerId,
+                        ClientId: doc.ClientId,
+                        ClientLogin: doc.ClientLogin,
+                        UserName: doc.UserName,
                         TypeId: doc.TypeId,
                         CurrencyId: doc.CurrencyId,
                         Amount: doc.Amount,
-                        CreatedDate: formatDate(doc.CreatedLocal),
-                        ClientId: doc.ClientId,
                         PaymentSystemName: doc.PaymentSystemName,
-                        ClientLogin: doc.ClientLogin,
-                        UserName: doc.UserName
+                        CreatedDate: formatDate(doc.CreatedLocal),
+                        PartnerId: doc.PartnerId,
+                        Id: doc.Id
                     });
                 });
 
