@@ -126,6 +126,10 @@ const fetchData = async (project, fromDate, toDate) => {
     return { totalCount, fetchedCount, filename };  // Return the results after fetching all data
 };
 
+app.get("/", (req, res) => {
+  res.send("Get data is running...");
+});
+
 app.post('/fetch', async (req, res) => {
     const { project, fromDate, toDate } = req.body;
 
