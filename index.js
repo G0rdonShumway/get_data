@@ -20,8 +20,7 @@ const projects = {
 
 // Функция для форматирования даты
 function formatDate(dateString) {
-    const date = new Date(dateString);
-    return `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
+    return dateString.split('.')[0].replace('T', ' ');
 }
 
 const fetchData = async (project, fromDate, toDate) => {
